@@ -47,6 +47,8 @@
 		drawSecond2_rightTop();
 		drawSecond2_rightBottom();*/
 
+		//Drawing a rectangle of dimension 1000x250
+
 		function drawRect()
 		{
 			ctx.beginPath();
@@ -58,6 +60,8 @@
 			drawTime();
 		}
 
+		//Drawing the two dots between hour and minute display
+
 		function drawDot1()
 		{
 			ctx.beginPath();
@@ -67,6 +71,8 @@
 			ctx.fill();
 		}
 
+		//Drawing the two dots between minute and second displey
+
 		function drawDot2()
 		{
 			ctx.beginPath();
@@ -75,6 +81,8 @@
 			ctx.arc(660, 165, 5, 0, 2 * Math.PI);
 			ctx.fill();
 		}
+
+		//Creating left-top line of first hour digit
 
 		function drawHour1_leftTop(){
 			ctx.beginPath();
@@ -86,6 +94,8 @@
 			ctx.stroke();
 		}
 
+		//Creating left-bottom line of first hour digit
+
 		function drawHour1_leftBottom(){
 			ctx.beginPath();
 			ctx.lineWidth = "5";
@@ -95,6 +105,8 @@
 			ctx.lineTo(50, 200);
 			ctx.stroke();
 		}
+
+		//Creating right-top line of first hour digit
 
 		function drawHour1_rightTop(){
 			ctx.beginPath();
@@ -106,6 +118,8 @@
 			ctx.stroke();
 		}
 
+		//Creating right-bottom line of first hour digit
+
 		function drawHour1_rightBottom(){
 			ctx.beginPath();
 			ctx.lineWidth = "5";
@@ -115,6 +129,8 @@
 			ctx.lineTo(160, 200);
 			ctx.stroke();
 		}
+
+		//Creating top-middle line of first hour digit
 
 		function drawHour1_top(){
 			ctx.beginPath();
@@ -126,6 +142,8 @@
 			ctx.stroke();
 		}
 
+		//Creating middle line of first hour digit
+
 		function drawHour1_middle(){
 			ctx.beginPath();
 			ctx.lineWidth = "5";
@@ -136,6 +154,8 @@
 			ctx.stroke();
 		}
 
+		//Creating bottom line of first hour digit
+
 		function drawHour1_bottom(){
 			ctx.beginPath();
 			ctx.lineWidth = "5";
@@ -145,6 +165,17 @@
 			ctx.lineTo(140, 210);
 			ctx.stroke();
 		}
+
+		/*
+			Similarly, i have created the above functions for second hour digit, first minute digit, second minute digit,
+			first second digit and second second digit.
+
+			drawHour2 --> second hour digit
+			drawMinute1 --> first minute digit
+			drawMinute2 --> second minute digit
+			drawSecond1 --> firstsecond digit
+			drawSecond2 --> secondSecond digit
+		*/
 
 		function drawHour2_leftTop(){
 			ctx.beginPath();
@@ -496,6 +527,8 @@
 			ctx.stroke();
 		}
 
+		//Draw 0 in first hour digit
+
 		function drawHour1_zero()
 		{
 			drawHour1_leftTop();
@@ -506,11 +539,15 @@
 			drawHour1_bottom();
 		}
 
+		//Draw 1 in first hour digit
+
 		function drawHour1_one()
 		{
 			drawHour1_rightTop();
 			drawHour1_rightBottom();
 		}
+
+		//Draw 2 in first hour digit
 
 		function drawHour1_two()
 		{
@@ -521,6 +558,8 @@
 			drawHour1_bottom();
 		}
 
+		//Draw 3 in first hour digit
+
 		function drawHour1_three()
 		{
 			drawHour1_top();
@@ -530,6 +569,8 @@
 			drawHour1_bottom();
 		}
 
+		//Draw 4 in first hour digit
+
 		function drawHour1_four()
 		{
 			drawHour1_leftTop();
@@ -537,6 +578,8 @@
 			drawHour1_middle();
 			drawHour1_rightBottom();
 		}
+
+		//Draw 5 in first hour digit
 
 		function drawHour1_five()
 		{
@@ -546,6 +589,8 @@
 			drawHour1_bottom();
 			drawHour1_rightBottom();
 		}
+
+		//Draw 6 in first hour digit
 
 		function drawHour1_six()
 		{
@@ -557,12 +602,16 @@
 			drawHour1_rightBottom();
 		}
 
+		//Draw 7 in first hour digit
+
 		function drawHour1_seven()
 		{
 			drawHour1_top();
 			drawHour1_rightBottom();
 			drawHour1_rightTop();
 		}
+
+		//Draw 8 in first hour digit
 
 		function drawHour1_eight()
 		{
@@ -575,6 +624,8 @@
 			drawHour1_rightBottom();
 		}
 
+		//Draw 9 in first hour digit
+
 		function drawHour1_nine()
 		{
 			drawHour1_top();
@@ -583,6 +634,17 @@
 			drawHour1_rightTop();
 			drawHour1_rightBottom();
 		}
+
+		/*
+			Similarly, i have created the above functions for second hour digit, first minute digit, second minute digit,
+			first second digit and second second digit.
+
+			drawHour2 --> second hour digit
+			drawMinute1 --> first minute digit
+			drawMinute2 --> second minute digit
+			drawSecond1 --> firstsecond digit
+			drawSecond2 --> secondSecond digit
+		*/
 
 		function drawHour2_zero()
 		{
@@ -1024,6 +1086,10 @@
 		}
 
 
+		/*
+			The main function which displays the time as digital output.
+		*/
+
 		function drawTime()
 		{
 			var now = new Date();
@@ -1031,13 +1097,19 @@
 			var minute = now.getMinutes();
 			var second = now.getSeconds();
 
+			//getting the first digit of current hour value
 			var hour1 = Math.floor(hour / 10);
+			//getting the second digit of current hour value
 			var hour2 = hour % 10;
 
+			//getting the first digit of current minute value
 			var minute1 = Math.floor(minute / 10);
+			//getting the second digit of current minute value
 			var minute2 = minute % 10;
 
+			//getting the first digit of current second value
 			var second1 = Math.floor(second / 10);
+			//getting the second digit of current second value
 			var second2 = second % 10;
 
 			switch(hour1)
