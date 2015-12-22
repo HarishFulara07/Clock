@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Digital Clock</title>
+</head>
+<body>
+	<canvas id="myCanvas" width="1000" height="250" style="background-color: #333; border-radius: 10px"></canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById("myCanvas");
+		var ctx = canvas.getContext("2d");
+
+		setInterval("drawRect()", 1000);
+		/*drawHour2_rightTop();
+		drawMinute2_rightTop();
+		drawDot1();
+		drawDot2();
+		drawMinute1_leftTop();
+		drawMinute1_leftBottom();
+		drawMinute1_top();
+		drawMinute1_middle();
+		drawMinute1_bottom();
+		drawMinute1_rightTop();
+		drawMinute1_rightBottom();
+		drawMinute2_leftTop();
+		drawMinute2_leftBottom();
+		drawMinute2_top();
+		drawMinute2_middle();
+		drawMinute2_bottom();
+		drawMinute2_rightTop();
+		drawMinute2_rightBottom();
+		drawSecond1_leftTop();
+		drawSecond1_leftBottom();
+		drawSecond1_top();
+		drawSecond1_middle();
+		drawSecond1_bottom();
+		drawSecond1_rightTop();
+		drawSecond1_rightBottom();
+		drawSecond2_leftTop();
+		drawSecond2_leftBottom();
+		drawSecond2_top();
+		drawSecond2_middle();
+		drawSecond2_bottom();
+		drawSecond2_rightTop();
+		drawSecond2_rightBottom();*/
+
+		function drawRect()
+		{
+			ctx.beginPath();
+			ctx.fillStyle = "#333";
+			ctx.rect(0,0,1000,250);
+			ctx.fill();
+			drawDot1();
+			drawDot2();	
+			drawTime();
+		}
+
+		function drawDot1()
+		{
+			ctx.beginPath();
+			ctx.fillStyle = "white";
+			ctx.arc(340, 75, 5, 0, 2 * Math.PI);
+			ctx.arc(340, 165, 5, 0, 2 * Math.PI);
+			ctx.fill();
+		}
+
+		function drawDot2()
+		{
+			ctx.beginPath();
+			ctx.fillStyle = "white";
+			ctx.arc(660, 75, 5, 0, 2 * Math.PI);
+			ctx.arc(660, 165, 5, 0, 2 * Math.PI);
+			ctx.fill();
+		}
+
+		function drawHour1_leftTop(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(50, 40);
+			ctx.lineTo(50, 110);
+			ctx.stroke();
+		}
+
+		function drawHour1_leftBottom(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(50, 130);
+			ctx.lineTo(50, 200);
+			ctx.stroke();
+		}
+
+		function drawHour1_rightTop(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(160, 40);
+			ctx.lineTo(160, 110);
+			ctx.stroke();
+		}
+
+		function drawHour1_rightBottom(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(160, 130);
+			ctx.lineTo(160, 200);
+			ctx.stroke();
+		}
+
+		function drawHour1_top(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(70, 30);
+			ctx.lineTo(140, 30);
+			ctx.stroke();
+		}
+
+		function drawHour1_middle(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(70, 120);
+			ctx.lineTo(140, 120);
+			ctx.stroke();
+		}
+
+		function drawHour1_bottom(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(70, 210);
+			ctx.lineTo(140, 210);
+			ctx.stroke();
+		}
+
+		function drawHour2_leftTop(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(200, 40);
+			ctx.lineTo(200, 110);
+			ctx.stroke();
+		}
+
+		function drawHour2_leftBottom(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(200, 130);
+			ctx.lineTo(200, 200);
+			ctx.stroke();
+		}
+
+		function drawHour2_rightTop(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(310, 40);
+			ctx.lineTo(310, 110);
+			ctx.stroke();
+		}
+
+		function drawHour2_rightBottom(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(310, 130);
+			ctx.lineTo(310, 200);
+			ctx.stroke();
+		}
+
+		function drawHour2_top(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(220, 30);
+			ctx.lineTo(290, 30);
+			ctx.stroke();
+		}
+
+		function drawHour2_middle(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(220, 120);
+			ctx.lineTo(290, 120);
+			ctx.stroke();
+		}
+
+		function drawHour2_bottom(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(220, 210);
+			ctx.lineTo(290, 210);
+			ctx.stroke();
+		}
+
+		function drawMinute1_leftTop(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(370, 40);
+			ctx.lineTo(370, 110);
+			ctx.stroke();
+		}
+
+		function drawMinute1_leftBottom(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(370, 130);
+			ctx.lineTo(370, 200);
+			ctx.stroke();
+		}
+
+		function drawMinute1_rightTop(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(480, 40);
+			ctx.lineTo(480, 110);
+			ctx.stroke();
+		}
+
+		function drawMinute1_rightBottom(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(480, 130);
+			ctx.lineTo(480, 200);
+			ctx.stroke();
+		}
+
+		function drawMinute1_top(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(390, 30);
+			ctx.lineTo(460, 30);
+			ctx.stroke();
+		}
+
+		function drawMinute1_middle(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(390, 120);
+			ctx.lineTo(460, 120);
+			ctx.stroke();
+		}
+
+		function drawMinute1_bottom(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(390, 210);
+			ctx.lineTo(460, 210);
+			ctx.stroke();
+		}
+
+		function drawMinute2_leftTop(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(520, 40);
+			ctx.lineTo(520, 110);
+			ctx.stroke();
+		}
+
+		function drawMinute2_leftBottom(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(520, 130);
+			ctx.lineTo(520, 200);
+			ctx.stroke();
+		}
+
+		function drawMinute2_rightTop(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(630, 40);
+			ctx.lineTo(630, 110);
+			ctx.stroke();
+		}
+
+		function drawMinute2_rightBottom(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(630, 130);
+			ctx.lineTo(630, 200);
+			ctx.stroke();
+		}
+
+		function drawMinute2_top(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(540, 30);
+			ctx.lineTo(610, 30);
+			ctx.stroke();
+		}
+
+		function drawMinute2_middle(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(540, 120);
+			ctx.lineTo(610, 120);
+			ctx.stroke();
+		}
+
+		function drawMinute2_bottom(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(540, 210);
+			ctx.lineTo(610, 210);
+			ctx.stroke();
+		}
+
+		function drawSecond1_leftTop(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(690, 40);
+			ctx.lineTo(690, 110);
+			ctx.stroke();
+		}
+
+		function drawSecond1_leftBottom(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(690, 130);
+			ctx.lineTo(690, 200);
+			ctx.stroke();
+		}
+
+		function drawSecond1_rightTop(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(800, 40);
+			ctx.lineTo(800, 110);
+			ctx.stroke();
+		}
+
+		function drawSecond1_rightBottom(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(800, 130);
+			ctx.lineTo(800, 200);
+			ctx.stroke();
+		}
+
+		function drawSecond1_top(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(710, 30);
+			ctx.lineTo(780, 30);
+			ctx.stroke();
+		}
+
+		function drawSecond1_middle(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(710, 120);
+			ctx.lineTo(780, 120);
+			ctx.stroke();
+		}
+
+		function drawSecond1_bottom(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(710, 210);
+			ctx.lineTo(780, 210);
+			ctx.stroke();
+		}
+
+		function drawSecond2_leftTop(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(840, 40);
+			ctx.lineTo(840, 110);
+			ctx.stroke();
+		}
+
+		function drawSecond2_leftBottom(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(840, 130);
+			ctx.lineTo(840, 200);
+			ctx.stroke();
+		}
+
+		function drawSecond2_rightTop(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(950, 40);
+			ctx.lineTo(950, 110);
+			ctx.stroke();
+		}
+
+		function drawSecond2_rightBottom(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(950, 130);
+			ctx.lineTo(950, 200);
+			ctx.stroke();
+		}
+
+		function drawSecond2_top(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(860, 30);
+			ctx.lineTo(930, 30);
+			ctx.stroke();
+		}
+
+		function drawSecond2_middle(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(860, 120);
+			ctx.lineTo(930, 120);
+			ctx.stroke();
+		}
+
+		function drawSecond2_bottom(){
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.lineCap = "round";
+			ctx.strokeStyle = "white";
+			ctx.moveTo(860, 210);
+			ctx.lineTo(930, 210);
+			ctx.stroke();
+		}
+
+		function drawHour1_zero()
+		{
+			drawHour1_leftTop();
+			drawHour1_leftBottom();
+			drawHour1_rightTop();
+			drawHour1_rightBottom();
+			drawHour1_top();
+			drawHour1_bottom();
+		}
+
+		function drawHour1_one()
+		{
+			drawHour1_rightTop();
+			drawHour1_rightBottom();
+		}
+
+		function drawHour1_two()
+		{
+			drawHour1_top();
+			drawHour1_rightTop();
+			drawHour1_middle();
+			drawHour1_leftBottom();
+			drawHour1_bottom();
+		}
+
+		function drawHour1_three()
+		{
+			drawHour1_top();
+			drawHour1_rightTop();
+			drawHour1_middle();
+			drawHour1_rightBottom();
+			drawHour1_bottom();
+		}
+
+		function drawHour1_four()
+		{
+			drawHour1_leftTop();
+			drawHour1_rightTop();
+			drawHour1_middle();
+			drawHour1_rightBottom();
+		}
+
+		function drawHour1_five()
+		{
+			drawHour1_top();
+			drawHour1_middle();
+			drawHour1_leftTop();
+			drawHour1_bottom();
+			drawHour1_rightBottom();
+		}
+
+		function drawHour1_six()
+		{
+			drawHour1_top();
+			drawHour1_middle();
+			drawHour1_leftTop();
+			drawHour1_leftBottom();
+			drawHour1_bottom();
+			drawHour1_rightBottom();
+		}
+
+		function drawHour1_seven()
+		{
+			drawHour1_top();
+			drawHour1_rightBottom();
+			drawHour1_rightTop();
+		}
+
+		function drawHour1_eight()
+		{
+			drawHour1_top();
+			drawHour1_middle();
+			drawHour1_bottom();
+			drawHour1_leftTop();
+			drawHour1_leftBottom();
+			drawHour1_rightTop();
+			drawHour1_rightBottom();
+		}
+
+		function drawHour1_nine()
+		{
+			drawHour1_top();
+			drawHour1_middle();
+			drawHour1_leftTop();
+			drawHour1_rightTop();
+			drawHour1_rightBottom();
+		}
+
+		function drawHour2_zero()
+		{
+			drawHour2_leftTop();
+			drawHour2_leftBottom();
+			drawHour2_rightTop();
+			drawHour2_rightBottom();
+			drawHour2_top();
+			drawHour2_bottom();
+		}
+
+		function drawHour2_one()
+		{
+			drawHour2_rightTop();
+			drawHour2_rightBottom();
+		}
+
+		function drawHour2_two()
+		{
+			drawHour2_top();
+			drawHour2_rightTop();
+			drawHour2_middle();
+			drawHour2_leftBottom();
+			drawHour2_bottom();
+		}
+
+		function drawHour2_three()
+		{
+			drawHour2_top();
+			drawHour2_rightTop();
+			drawHour2_middle();
+			drawHour2_rightBottom();
+			drawHour2_bottom();
+		}
+
+		function drawHour2_four()
+		{
+			drawHour2_leftTop();
+			drawHour2_rightTop();
+			drawHour2_middle();
+			drawHour2_rightBottom();
+		}
+
+		function drawHour2_five()
+		{
+			drawHour2_top();
+			drawHour2_middle();
+			drawHour2_leftTop();
+			drawHour2_bottom();
+			drawHour2_rightBottom();
+		}
+
+		function drawHour2_six()
+		{
+			drawHour2_top();
+			drawHour2_middle();
+			drawHour2_leftTop();
+			drawHour2_leftBottom();
+			drawHour2_bottom();
+			drawHour2_rightBottom();
+		}
+
+		function drawHour2_seven()
+		{
+			drawHour2_top();
+			drawHour2_rightBottom();
+			drawHour2_rightTop();
+		}
+
+		function drawHour2_eight()
+		{
+			drawHour2_top();
+			drawHour2_middle();
+			drawHour2_bottom();
+			drawHour2_leftTop();
+			drawHour2_leftBottom();
+			drawHour2_rightTop();
+			drawHour2_rightBottom();
+		}
+
+		function drawHour2_nine()
+		{
+			drawHour2_top();
+			drawHour2_middle();
+			drawHour2_leftTop();
+			drawHour2_rightTop();
+			drawHour2_rightBottom();
+		}
+
+		function drawMinute1_zero()
+		{
+			drawMinute1_leftTop();
+			drawMinute1_leftBottom();
+			drawMinute1_rightTop();
+			drawMinute1_rightBottom();
+			drawMinute1_top();
+			drawMinute1_bottom();
+		}
+
+		function drawMinute1_one()
+		{
+			drawMinute1_rightTop();
+			drawMinute1_rightBottom();
+		}
+
+		function drawMinute1_two()
+		{
+			drawMinute1_top();
+			drawMinute1_rightTop();
+			drawMinute1_middle();
+			drawMinute1_leftBottom();
+			drawMinute1_bottom();
+		}
+
+		function drawMinute1_three()
+		{
+			drawMinute1_top();
+			drawMinute1_rightTop();
+			drawMinute1_middle();
+			drawMinute1_rightBottom();
+			drawMinute1_bottom();
+		}
+
+		function drawMinute1_four()
+		{
+			drawMinute1_leftTop();
+			drawMinute1_rightTop();
+			drawMinute1_middle();
+			drawMinute1_rightBottom();
+		}
+
+		function drawMinute1_five()
+		{
+			drawMinute1_top();
+			drawMinute1_middle();
+			drawMinute1_leftTop();
+			drawMinute1_bottom();
+			drawMinute1_rightBottom();
+		}
+
+		function drawMinute1_six()
+		{
+			drawMinute1_top();
+			drawMinute1_middle();
+			drawMinute1_leftTop();
+			drawMinute1_leftBottom();
+			drawMinute1_bottom();
+			drawMinute1_rightBottom();
+		}
+
+		function drawMinute1_seven()
+		{
+			drawMinute1_top();
+			drawMinute1_rightBottom();
+			drawMinute1_rightTop();
+		}
+
+		function drawMinute1_eight()
+		{
+			drawMinute1_top();
+			drawMinute1_middle();
+			drawMinute1_bottom();
+			drawMinute1_leftTop();
+			drawMinute1_leftBottom();
+			drawMinute1_rightTop();
+			drawMinute1_rightBottom();
+		}
+
+		function drawMinute1_nine()
+		{
+			drawMinute1_top();
+			drawMinute1_middle();
+			drawMinute1_leftTop();
+			drawMinute1_rightTop();
+		}
+
+		function drawMinute2_zero()
+		{
+			drawMinute2_leftTop();
+			drawMinute2_leftBottom();
+			drawMinute2_rightTop();
+			drawMinute2_rightBottom();
+			drawMinute2_top();
+			drawMinute2_bottom();
+		}
+
+		function drawMinute2_one()
+		{
+			drawMinute2_rightTop();
+			drawMinute2_rightBottom();
+		}
+
+		function drawMinute2_two()
+		{
+			drawMinute2_top();
+			drawMinute2_rightTop();
+			drawMinute2_middle();
+			drawMinute2_leftBottom();
+			drawMinute2_bottom();
+		}
+
+		function drawMinute2_three()
+		{
+			drawMinute2_top();
+			drawMinute2_rightTop();
+			drawMinute2_middle();
+			drawMinute2_rightBottom();
+			drawMinute2_bottom();
+		}
+
+		function drawMinute2_four()
+		{
+			drawMinute2_leftTop();
+			drawMinute2_rightTop();
+			drawMinute2_middle();
+			drawMinute2_rightBottom();
+		}
+
+		function drawMinute2_five()
+		{
+			drawMinute2_top();
+			drawMinute2_middle();
+			drawMinute2_leftTop();
+			drawMinute2_bottom();
+			drawMinute2_rightBottom();
+		}
+
+		function drawMinute2_six()
+		{
+			drawMinute2_top();
+			drawMinute2_middle();
+			drawMinute2_leftTop();
+			drawMinute2_leftBottom();
+			drawMinute2_bottom();
+			drawMinute2_rightBottom();
+		}
+
+		function drawMinute2_seven()
+		{
+			drawMinute2_top();
+			drawMinute2_rightBottom();
+			drawMinute2_rightTop();
+		}
+
+		function drawMinute2_eight()
+		{
+			drawMinute2_top();
+			drawMinute2_middle();
+			drawMinute2_bottom();
+			drawMinute2_leftTop();
+			drawMinute2_leftBottom();
+			drawMinute2_rightTop();
+			drawMinute2_rightBottom();
+		}
+
+		function drawMinute2_nine()
+		{
+			drawMinute2_top();
+			drawMinute2_middle();
+			drawMinute2_leftTop();
+			drawMinute2_rightTop();
+			drawMinute2_rightBottom();
+		}
+
+		function drawSecond1_zero()
+		{
+			drawSecond1_leftTop();
+			drawSecond1_leftBottom();
+			drawSecond1_rightTop();
+			drawSecond1_rightBottom();
+			drawSecond1_top();
+			drawSecond1_bottom();
+		}
+
+		function drawSecond1_one()
+		{
+			drawSecond1_rightTop();
+			drawSecond1_rightBottom();
+		}
+
+		function drawSecond1_two()
+		{
+			drawSecond1_top();
+			drawSecond1_rightTop();
+			drawSecond1_middle();
+			drawSecond1_leftBottom();
+			drawSecond1_bottom();
+		}
+
+		function drawSecond1_three()
+		{
+			drawSecond1_top();
+			drawSecond1_rightTop();
+			drawSecond1_middle();
+			drawSecond1_rightBottom();
+			drawSecond1_bottom();
+		}
+
+		function drawSecond1_four()
+		{
+			drawSecond1_leftTop();
+			drawSecond1_rightTop();
+			drawSecond1_middle();
+			drawSecond1_rightBottom();
+		}
+
+		function drawSecond1_five()
+		{
+			drawSecond1_top();
+			drawSecond1_middle();
+			drawSecond1_leftTop();
+			drawSecond1_bottom();
+			drawSecond1_rightBottom();
+		}
+
+		function drawSecond1_six()
+		{
+			drawSecond1_top();
+			drawSecond1_middle();
+			drawSecond1_leftTop();
+			drawSecond1_leftBottom();
+			drawSecond1_bottom();
+			drawSecond1_rightBottom();
+		}
+
+		function drawSecond1_seven()
+		{
+			drawSecond1_top();
+			drawSecond1_rightBottom();
+			drawSecond1_rightTop();
+		}
+
+		function drawSecond1_eight()
+		{
+			drawSecond1_top();
+			drawSecond1_middle();
+			drawSecond1_bottom();
+			drawSecond1_leftTop();
+			drawSecond1_leftBottom();
+			drawSecond1_rightTop();
+			drawSecond1_rightBottom();
+		}
+
+		function drawSecond1_nine()
+		{
+			drawSecond1_top();
+			drawSecond1_middle();
+			drawSecond1_leftTop();
+			drawSecond1_rightTop();
+			drawSecond1_rightBottom();
+		}
+
+		function drawSecond2_zero()
+		{
+			drawSecond2_leftTop();
+			drawSecond2_leftBottom();
+			drawSecond2_rightTop();
+			drawSecond2_rightBottom();
+			drawSecond2_top();
+			drawSecond2_bottom();
+		}
+
+		function drawSecond2_one()
+		{
+			drawSecond2_rightTop();
+			drawSecond2_rightBottom();
+		}
+
+		function drawSecond2_two()
+		{
+			drawSecond2_top();
+			drawSecond2_rightTop();
+			drawSecond2_middle();
+			drawSecond2_leftBottom();
+			drawSecond2_bottom();
+		}
+
+		function drawSecond2_three()
+		{
+			drawSecond2_top();
+			drawSecond2_rightTop();
+			drawSecond2_middle();
+			drawSecond2_rightBottom();
+			drawSecond2_bottom();
+		}
+
+		function drawSecond2_four()
+		{
+			drawSecond2_leftTop();
+			drawSecond2_rightTop();
+			drawSecond2_middle();
+			drawSecond2_rightBottom();
+		}
+
+		function drawSecond2_five()
+		{
+			drawSecond2_top();
+			drawSecond2_middle();
+			drawSecond2_leftTop();
+			drawSecond2_bottom();
+			drawSecond2_rightBottom();
+		}
+
+		function drawSecond2_six()
+		{
+			drawSecond2_top();
+			drawSecond2_middle();
+			drawSecond2_leftTop();
+			drawSecond2_leftBottom();
+			drawSecond2_bottom();
+			drawSecond2_rightBottom();
+		}
+
+		function drawSecond2_seven()
+		{
+			drawSecond2_top();
+			drawSecond2_rightBottom();
+			drawSecond2_rightTop();
+		}
+
+		function drawSecond2_eight()
+		{
+			drawSecond2_top();
+			drawSecond2_middle();
+			drawSecond2_bottom();
+			drawSecond2_leftTop();
+			drawSecond2_leftBottom();
+			drawSecond2_rightTop();
+			drawSecond2_rightBottom();
+		}
+
+		function drawSecond2_nine()
+		{
+			drawSecond2_top();
+			drawSecond2_middle();
+			drawSecond2_leftTop();
+			drawSecond2_rightTop();
+			drawSecond2_rightBottom();
+		}
+
+
+		function drawTime()
+		{
+			var now = new Date();
+			var hour = now.getHours();
+			var minute = now.getMinutes();
+			var second = now.getSeconds();
+
+			var hour1 = Math.floor(hour / 10);
+			var hour2 = hour % 10;
+
+			var minute1 = Math.floor(minute / 10);
+			var minute2 = minute % 10;
+
+			var second1 = Math.floor(second / 10);
+			var second2 = second % 10;
+
+			switch(hour1)
+			{
+				case 0 : drawHour1_zero();
+				break;
+				case 1 : drawHour1_one();
+				break;
+				case 2 : drawHour1_two();
+				break;
+				case 3 : drawHour1_three();
+				break;
+				case 4 : drawHour1_four();
+				break;
+				case 5 : drawHour1_five();
+				break;
+				case 6 : drawHour1_six();
+				break;
+				case 7 : drawHour1_seven();
+				break;
+				case 8 : drawHour1_eight();
+				break;
+				case 9 : drawHour1_nine();
+				break;
+			}
+
+			switch(hour2)
+			{
+				case 0 : drawHour2_zero();
+				break;
+				case 1 : drawHour2_one();
+				break;
+				case 2 : drawHour2_two();
+				break;
+				case 3 : drawHour2_three();
+				break;
+				case 4 : drawHour2_four();
+				break;
+				case 5 : drawHour2_five();
+				break;
+				case 6 : drawHour2_six();
+				break;
+				case 7 : drawHour2_seven();
+				break;
+				case 8 : drawHour2_eight();
+				break;
+				case 9 : drawHour2_nine();
+				break;
+			}
+
+			switch(minute1)
+			{
+				case 0 : drawMinute1_zero();
+				break;
+				case 1 : drawMinute1_one();
+				break;
+				case 2 : drawMinute1_two();
+				break;
+				case 3 : drawMinute1_three();
+				break;
+				case 4 : drawMinute1_four();
+				break;
+				case 5 : drawMinute1_five();
+				break;
+				case 6 : drawMinute1_six();
+				break;
+				case 7 : drawMinute1_seven();
+				break;
+				case 8 : drawMinute1_eight();
+				break;
+				case 9 : drawMinute1_nine();
+				break;
+			}
+
+			switch(minute2)
+			{
+				case 0 : drawMinute2_zero();
+				break;
+				case 1 : drawMinute2_one();
+				break;
+				case 2 : drawMinute2_two();
+				break;
+				case 3 : drawMinute2_three();
+				break;
+				case 4 : drawMinute2_four();
+				break;
+				case 5 : drawMinute2_five();
+				break;
+				case 6 : drawMinute2_six();
+				break;
+				case 7 : drawMinute2_seven();
+				break;
+				case 8 : drawMinute2_eight();
+				break;
+				case 9 : drawMinute2_nine();
+				break;
+			}
+
+			switch(second1)
+			{
+				case 0 : drawSecond1_zero();
+				break;
+				case 1 : drawSecond1_one();
+				break;
+				case 2 : drawSecond1_two();
+				break;
+				case 3 : drawSecond1_three();
+				break;
+				case 4 : drawSecond1_four();
+				break;
+				case 5 : drawSecond1_five();
+				break;
+				case 6 : drawSecond1_six();
+				break;
+				case 7 : drawSecond1_seven();
+				break;
+				case 8 : drawSecond1_eight();
+				break;
+				case 9 : drawSecond1_nine();
+				break;
+			}
+
+			switch(second2)
+			{
+				case 0 : drawSecond2_zero();
+				break;
+				case 1 : drawSecond2_one();
+				break;
+				case 2 : drawSecond2_two();
+				break;
+				case 3 : drawSecond2_three();
+				break;
+				case 4 : drawSecond2_four();
+				break;
+				case 5 : drawSecond2_five();
+				break;
+				case 6 : drawSecond2_six();
+				break;
+				case 7 : drawSecond2_seven();
+				break;
+				case 8 : drawSecond2_eight();
+				break;
+				case 9 : drawSecond2_nine();
+				break;
+			}
+		}
+	</script>
+</body>
+</html>
