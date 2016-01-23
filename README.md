@@ -1,2 +1,2 @@
 # JavaScriptClock
-Implementation of two clocks - analog and digital - using JavaScript
+Implementation of clocks - analog and digital - using HTML5 Canvas and JavaScript.
